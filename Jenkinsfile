@@ -1,9 +1,13 @@
 pipeline {
     agent any
+
+    tools {
+        maven 'localMaven'
+    }
+
     stages{
         stage('Build'){
             steps {
-                sh 'source ~/.bash_profile'
                 sh 'mvn clean package'
             }
             post {
